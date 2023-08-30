@@ -42,55 +42,23 @@ Array.prototype.slice.call(forms).forEach(function (form) {
   );
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     if (window.innerWidth > 768) { // أو أي قيمة تمثل حجم الشاشة الصغيرة
-//         var b = document.getElementsByTagName("BODY")[0];
-
-//         b.addEventListener("mousemove", function (event) {
-//             parallaxed(event);
-//         });
-
-//         function parallaxed(e) {
-//             var amountMovedX = (e.clientX * -0.3 / 8);
-//             var amountMovedY = (e.clientY * -0.3 / 8);
-//             var x = document.getElementsByClassName("parallaxed");
-//             var i;
-//             for (i = 0; i < x.length; i++) {
-//                 x[i].style.transform = 'translate(' + amountMovedX + 'px,' + amountMovedY + 'px)';
-//             }
-//         }
-//     }
-// });
 document.addEventListener("DOMContentLoaded", function () {
-  // استدعاء دالة لعرض رسالة الموافقة
-  showConfirmationMessage();
+    if (window.innerWidth > 500) { // أو أي قيمة تمثل حجم الشاشة الصغيرة
+        var b = document.getElementsByTagName("BODY")[0];
 
-  function enableParallax() {
-    var b = document.getElementsByTagName("BODY")[0];
+        b.addEventListener("mousemove", function (event) {
+            parallaxed(event);
+        });
 
-    b.addEventListener("mousemove", function (event) {
-      parallaxed(event);
-    });
-
-    function parallaxed(e) {
-      var amountMovedX = (e.clientX * -0.3) / 8;
-      var amountMovedY = (e.clientY * -0.3) / 8;
-      var x = document.getElementsByClassName("parallaxed");
-      var i;
-      for (i = 0; i < x.length; i++) {
-        x[i].style.transform =
-          "translate(" + amountMovedX + "px," + amountMovedY + "px)";
-      }
+        function parallaxed(e) {
+            var amountMovedX = (e.clientX * -0.3 / 8);
+            var amountMovedY = (e.clientY * -0.3 / 8);
+            var x = document.getElementsByClassName("parallaxed");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.transform = 'translate(' + amountMovedX + 'px,' + amountMovedY + 'px)';
+            }
+        }
     }
-  }
-
-  function showConfirmationMessage() {
-    // عرض رسالة الاختيار باستخدام confirm
-    var userAgreed = confirm("هل توافق على تشغيل التأثير؟");
-
-    // إذا وافق المستخدم، قم بتشغيل التأثير
-    if (userAgreed) {
-      enableParallax();
-    }
-  }
 });
+
